@@ -30,7 +30,7 @@ module.exports = ({ mode }) => {
       rules: [
         {
           test: /\.js$/,
-          exclude: /node_modules\/(?!lit-element|lit-html)/,
+          exclude: /node_modules\/(?!lit-element|lit-html)/, // lit needs to be transpiled cos its written in ES6
           loader: 'babel-loader',
           options: {
             plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-transform-runtime'],
