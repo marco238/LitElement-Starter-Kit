@@ -19,6 +19,7 @@
   "homepage": "https://bitbucket.org/duplexascensores/starter-kit-component-lit-element#readme",
   "dependencies": {
     "@babel/runtime": "^7.8.4",
+    "@vaadin/router": "^1.6.0",
     "@webcomponents/webcomponentsjs": "^2.4.0",
     "lit-element": "^2.2.1"
   },
