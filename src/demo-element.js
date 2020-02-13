@@ -4,9 +4,20 @@ class DemoElement extends LitElement {
 
   static get styles() {
     return css`
-      h3 {
-        color: #468ff0;
+      :host {
+        display: block;
+        color: var(--elem-text-color);
         text-align: center;
+        --elem-text-color: #56676d;
+        --elem-title-color: #2F4858;
+        --elem-link-color: #00737A;
+      }
+      h2 {
+        color: var(--elem-title-color);
+        text-align: center;
+      }
+      .text-container {
+        margin-top: 50px;
       }
     `;
   }
@@ -24,7 +35,12 @@ class DemoElement extends LitElement {
 
   render() {
     return html`
-      <h3>${this.title} Starter Kit</h3>
+      <h2>${this.title} Starter Kit</h2>
+      <div class="text-container">
+        <p>This a LitElement base component with routing.</p>
+        <p>For documentation open README file at directory's root</p>
+        <p>Made with ❤️ by <a target="_blank" href="https://github.com/marco238">Marcos</a></p>
+      </div>
     `;
   }
 }
