@@ -23,7 +23,8 @@ module.exports = ({ mode }) => {
     },
     output: {
       path: resolve(__dirname, distPath),
-      filename: '[name].bundle.js'
+      filename: '[name].bundle.js',
+      chunkFilename: '[id].js'
     },
 
     module: {
