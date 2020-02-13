@@ -1,25 +1,26 @@
 import { LitElement, html, css } from 'lit-element';
 
+import { SharedStyles } from '../../assets/sharedStyles';
+
 class AboutView extends LitElement {
 
   static get styles() {
-    return css`
-      :host {
-        text-align: center;
-        color: #56676d;
-      }
-      h2 {
-        color: #2F4858;
-        text-align: center;
-      }
-      .text-container {
-        margin-top: 50px;
-      }
-      a {
-        text-decoration: none;
-        color: #00737A;
-      }
-    `;
+    return [
+      SharedStyles,
+      css`
+        :host {
+          text-align: center;
+          color: var(--app-text-color);
+        }
+        .text-container {
+          margin-top: 50px;
+        }
+        a {
+          text-decoration: none;
+          color: var(--app-link-color);
+        }
+      `
+    ];
   }
 
   static get properties() {

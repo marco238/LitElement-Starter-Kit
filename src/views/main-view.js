@@ -1,21 +1,19 @@
 import { LitElement, html, css } from 'lit-element';
 
+import { SharedStyles } from '../../assets/sharedStyles';
+
 class MainView extends LitElement {
 
   static get styles() {
-    return css`
-      :host {
-        text-align: center;
-        color: #56676d;
-      }
-      h2 {
-        color: #2F4858;
-        text-align: center;
-      }
-      .text-container {
-        margin-top: 50px;
-      }
-    `;
+    return [
+      SharedStyles,
+      css`
+        :host {
+          text-align: center;
+          color: var(--app-text-color);
+        }
+      `
+    ];
   }
 
   static get properties() {
