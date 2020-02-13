@@ -7,15 +7,17 @@ class DemoElement extends LitElement {
     return css`
       #router-links {
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: center;
+        box-shadow: 0 0 20px #00000026;
       }
       #router-links a {
-        color: #008F7A;
-        padding: 10px 20px;
-        border-radius: 4px;
-        margin-right: 20px;
+        color: #00737A;
+        padding: 10px 25px;
         text-decoration: none;
+      }
+      #router-links a[active] {
+        background-image: linear-gradient(to top, #ededed, #f1f1f1, #f6f6f6, #fafafa, #ffffff);
       }
     `;
   }
@@ -23,7 +25,8 @@ class DemoElement extends LitElement {
   static get properties() {
     return {
       pageOne: {type: String},
-      pageTwo: {type: String}
+      pageTwo: {type: String},
+      path: {type: String}
     };
   }
 
@@ -31,6 +34,7 @@ class DemoElement extends LitElement {
     super();
     this.pageOne = 'Home';
     this.pageTwo = 'About';
+    this.path = window.location.pathname;
   }
 
   firstUpdated() {
@@ -41,12 +45,16 @@ class DemoElement extends LitElement {
   render() {
     return html`
       <nav id="router-links">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
+        <a href="/" ?active="${this.path === '/home' || this.path === '/'}" @click="${() => this._updatePath('/home')}">Home</a>
+        <a href="/about" ?active="${this.path === '/about'}" @click="${() => this._updatePath('/about')}">About</a>
       </nav>
 
       <main id="outlet"></main>
     `;
+  }
+
+  _updatePath(from) {
+    this.path = from;
   }
 }
 

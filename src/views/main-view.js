@@ -4,9 +4,16 @@ class MainView extends LitElement {
 
   static get styles() {
     return css`
-      h3 {
+      :host {
+        text-align: center;
+        color: #56676d;
+      }
+      h2 {
         color: #2F4858;
         text-align: center;
+      }
+      .text-container {
+        margin-top: 50px;
       }
     `;
   }
@@ -24,8 +31,11 @@ class MainView extends LitElement {
 
   render() {
     return html`
-      <h3>${this.title}</h3>
-      <p>Hi there! This is the home view :)</p>
+      <h2>${this.title}</h2>
+      <div class="text-container">
+        <p>Hi there 👋!! This is the home view</p>
+        <p>😊</p>
+      </div>
     `;
   }
 }

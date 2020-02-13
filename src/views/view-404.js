@@ -4,7 +4,11 @@ class ErrorView extends LitElement {
 
   static get styles() {
     return css`
-      h3 {
+      :host {
+        text-align: center;
+        color: #56676d;
+      }
+      h2 {
         color: #468ff0;
         text-align: center;
       }
@@ -24,7 +28,7 @@ class ErrorView extends LitElement {
 
   render() {
     return html`
-      <h3>${this.title}</h3>
+      <h2>${this.title}</h2>
       <p>Oh no!!! Nothing here :(</p>
     `;
   }
