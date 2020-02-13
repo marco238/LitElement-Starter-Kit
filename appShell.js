@@ -1,1 +1,1 @@
-require('./src/demo-element');
+require('./src/app-element');

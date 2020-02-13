@@ -3,7 +3,7 @@ import { initRouter } from './router';
 
 import { SharedStyles } from '../assets/sharedStyles';
 
-class DemoElement extends LitElement {
+class AppElement extends LitElement {
 
   static get styles() {
     return [
@@ -50,8 +50,8 @@ class DemoElement extends LitElement {
   render() {
     return html`
       <nav id="router-links">
-        <a href="/" ?active="${this.path === '/home' || this.path === '/'}" @click="${() => this._updatePath('/home')}">Home</a>
-        <a href="/about" ?active="${this.path === '/about'}" @click="${() => this._updatePath('/about')}">About</a>
+        <a href="/" ?active="${this.path === '/home' || this.path === '/'}" @click="${() => this._updatePath('/home')}">${this.pageOne}</a>
+        <a href="/about" ?active="${this.path === '/about'}" @click="${() => this._updatePath('/about')}">${this.pageTwo}</a>
       </nav>
 
       <main id="outlet"></main>
@@ -63,4 +63,4 @@ class DemoElement extends LitElement {
   }
 }
 
-window.customElements.define('demo-element', DemoElement);
+window.customElements.define('app-element', AppElement);

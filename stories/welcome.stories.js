@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
 import { withKnobs, text } from "@storybook/addon-knobs";
-import '../src/demo-element';
+import '../src/app-element';
 
 export default {
   title: 'LitElement Demo',
@@ -8,8 +8,9 @@ export default {
 };
 
 export const Case_1 = () => {
-  const title = text("Title", 'LitElement');
+  const pageOne = text("Page One", 'Home');
+  const pageTwo = text("Page Two", 'About');
   return html`
-    <demo-element title=${title}></demo-element>
+    <app-element pageOne=${pageOne} pageTwo=${pageTwo}></app-element>
   `
 };

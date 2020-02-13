@@ -19,7 +19,7 @@ module.exports = ({ mode }) => {
       extensions: ['.js']
     },
     entry: {
-      'demo-element': ['./src/demo-element.js']
+      'app-element': ['./src/app-element.js']
     },
     output: {
       path: resolve(__dirname, distPath),
