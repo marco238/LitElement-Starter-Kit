@@ -1,15 +1,9 @@
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = () =>({
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }
-    ]
-  },
   plugins: [
+    new CleanWebpackPlugin(),
     new HTMLWebpackPlugin({
       template: './index.html',
       filename: 'index.html',
@@ -20,5 +14,12 @@ module.exports = () =>({
         removeComments: true
       }
     })
-  ]
+  ],
+  devServer: {
+    inline: true,
+    host: '127.0.0.1',
+    compress: true,
+    historyApiFallback: true,
+    writeToDisk: true
+  }
 });
