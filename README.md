@@ -1,6 +1,6 @@
-# LitElement Demo
+# LitElement Starter Kit
 
-LitElement Starter Kit.
+Includes Webpack, Babel, Karma, Documentation, Storybook (demo manager), Polyfills & IE11 support.
 
 ### Tools:
 
@@ -31,6 +31,18 @@ npm run dev
 Run Project (production)
 ```
 npm run prod
+```
+Build Project **(ES5)**
+```
+npm run build:es5
+```
+Build Project **(ES6)**
+```
+npm run build:es6
+```
+Build Project **(both ES6 & ES5)**
+```
+npm run build
 ```
 Run testing with Karma
 ```
