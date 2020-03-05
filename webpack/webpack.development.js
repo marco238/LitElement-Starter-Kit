@@ -1,14 +1,6 @@
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = () =>({
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }
-    ]
-  },
   plugins: [
     new HTMLWebpackPlugin({
       template: './index.html',
@@ -20,5 +12,12 @@ module.exports = () =>({
         removeComments: true
       }
     })
-  ]
+  ],
+  devServer: {
+    inline: true,
+    host: '127.0.0.1',
+    compress: true,
+    historyApiFallback: true,
+    writeToDisk: true
+  }
 });

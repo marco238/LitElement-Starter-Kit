@@ -1,9 +1,7 @@
 const webpack = require('webpack');
+const { resolve } = require('path');
 const webpackMerge = require('webpack-merge');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const { resolve } = require('path');
-const portFinderSync = require('portfinder-sync');
-const distPath = 'dist';
 
 const modeConfig = env => require(`./webpack/webpack.${env.mode}.js`)(env);
 
@@ -13,7 +11,7 @@ const plugins = [
 ];
 
 module.exports = ({ mode }) => {
-  return webpackMerge({
+  return webpackMerge(modeConfig({mode}), {
     mode,
     resolve: {
       extensions: ['.js']
@@ -22,41 +20,9 @@ module.exports = ({ mode }) => {
       'demo-element': ['./src/demo-element.js']
     },
     output: {
-      path: resolve(__dirname, distPath),
-      filename: '[name].bundle.js'
-    },
-
-    module: {
-      rules: [
-        {
-          test: /\.js$/,
-          exclude: /node_modules\/(?!lit-element|lit-html)/, // lit needs to be transpiled cos its written in ES6
-          loader: 'babel-loader',
-          options: {
-            plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-transform-runtime'],
-            presets: [
-              [
-                '@babel/preset-env',
-                {
-                  useBuiltIns: 'entry',
-                  targets: '>1%, not dead, ie 11'
-                }
-              ]
-            ]
-          }
-        }
-      ]
-    },
-    devServer: {
-      inline: true,
-      host: '127.0.0.1',
-      port: portFinderSync.getPort(8080),
-      compress: true,
-      historyApiFallback: true,
-      writeToDisk: true
+      path: resolve(__dirname, 'dist/'),
+      filename: '[name]_es6.bundle.js'
     },
     plugins
-  },
-  modeConfig({mode}))
+  })
 }
-
