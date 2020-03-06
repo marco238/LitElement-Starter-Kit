@@ -4,10 +4,10 @@
   "description": "LitElement basic config",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config ./webpack.config.js --env.mode development --open",
-    "prod": "webpack-dev-server --config ./webpack.config.js --env.mode production --open",
+    "dev": "webpack-dev-server --env.mode development --open",
+    "prod": "webpack-dev-server --env.mode production --open",
     "build:es5": "webpack --config=webpack_es5.config.js --env.mode production",
-    "build:es6": "webpack --config=webpack.config.js --env.mode production",
+    "build:es6": "webpack --env.mode production",
     "build": "npm run build:es6 && npm run build:es5",
     "test": "karma start --coverage",
     "storybook": "start-storybook -p 9006"
