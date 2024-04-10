@@ -41,7 +41,7 @@
     "extract-loader": "^4.0.3",
     "html-webpack-plugin": "^5.5.0",
     "lit-scss-loader": "^1.0.0",
-    "node-sass": "^7.0.0",
+    "node-sass": "^9.0.0",
     "portfinder-sync": "0.0.2",
     "sass-loader": "^8.0.2",
     "terser-webpack-plugin": "^2.3.5",
